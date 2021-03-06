@@ -34,25 +34,31 @@ function NameInput({ match }) {
             <div class="all">
                 <Modal open={modalOpen} close={closeModal}>
                 </Modal>
-                <div class="header">
-                    <img src="/HeaderMain.png" />
-                </div>
+                <div class="container">
+                    <div class="header item item1">
+                        <img src="/HeaderMain.png" />
+                    </div>
 
-                <h2 class="font">이름이 무엇인가요?</h2>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField
-                        id="standard-full-width"
-                        placeholder="팀으로팡"
-                        fullWidth
-                        margin="normal"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                        borderColor="#5AA6F8"
-                    />
-                </form>
-                <p>{match.params.invite_code}</p>
-                <button className="button1"> 다음 </button>
+                    <div class="item item2">
+                    <h2 class="font">이름이 무엇인가요?</h2>
+                    <form className={classes.root} noValidate autoComplete="off">
+                        <TextField
+                            id="standard-full-width"
+                            placeholder="팀으로팡"
+                            fullWidth
+                            margin="normal"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            borderColor="#5AA6F8"
+                        />
+                    </form>
+                    <p>{match.params.invite_code}</p>
+                    <button className="button1"> 다음 </button>
+                    </div>
+                    <div class="item item3">
+                    </div>
+                </div>
             </div>
         </React.Fragment>
     )

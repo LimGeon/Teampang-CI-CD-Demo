@@ -31,4 +31,27 @@
     font-size: 22px;
     line-height: 130%;
     color: #333333;
-  }
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.item{
+
+}
+
+.item1{
+    flex-basis: 25%
+}
+
+.item2{
+    flex-basis: 45%
+}
+
+.item3{
+    flex-basis: 30%
+}
