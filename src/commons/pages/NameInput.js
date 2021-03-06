@@ -53,7 +53,7 @@ function NameInput({ match }) {
                             borderColor="#5AA6F8"
                         />
                     </form>
-                    <p>{match.params.invite_code}</p>
+                    <p class="invite">invite_code: {match.params.invite_code}</p>
                     <button className="button1"> 다음 </button>
                     </div>
                     <div class="item item3">
