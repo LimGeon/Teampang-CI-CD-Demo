@@ -13,7 +13,7 @@ const Modal = (props) => {
                     <header>
                     </header>
                     <main>
-                        <img  src="/teampang_info.png" />
+                        <img  src="/teampang_info2.png" />
                     </main>
                     <footer>
                         <button className="button1" onClick={close}> 팀프앙 앱으로 보기 </button>
