@@ -22,3 +22,13 @@
 .all{
     padding: 0px 22px 0px 22px;
 }
+
+.font {
+    font-family: Spoqa Han Sans Neo;
+    src: url("../fonts/SpoqaHanSansNeo-Bold.ttf");
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 130%;
+    color: #333333;
+  }

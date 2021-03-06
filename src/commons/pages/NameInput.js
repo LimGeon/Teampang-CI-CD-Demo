@@ -38,7 +38,7 @@ function NameInput({ match }) {
                     <img src="/HeaderMain.png" />
                 </div>
 
-                <h2 style={{ color: "#333333" }}>이름이 무엇인가요?</h2>
+                <h2 class="font">이름이 무엇인가요?</h2>
                 <form className={classes.root} noValidate autoComplete="off">
                     <TextField
                         id="standard-full-width"
