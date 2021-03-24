@@ -3,6 +3,7 @@ import Modal from '../components/Modals/Modal.js';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import "../../assets/css/NameInput.css";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
 function NameInput({ match }) {
     // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
     const [modalOpen, setModalOpen] = useState(true);
+    const [value, setValue] = useState("");
+
+    const handleChange = e => {
+        console.log(e.target.value);
+        setValue(e.target.value);
+    }
 
     // const openModal = () => {
     //     setModalOpen(true);
@@ -43,6 +50,8 @@ function NameInput({ match }) {
                     <h2 class="font">이름이 무엇인가요?</h2>
                     <form className={classes.root} noValidate autoComplete="off">
                         <TextField
+                            value = {value}
+                            onChange = {handleChange}
                             id="standard-full-width"
                             placeholder="팀으로팡"
                             fullWidth
@@ -54,7 +63,7 @@ function NameInput({ match }) {
                         />
                     </form>
                     <p class="invite">invite_code: {match.params.invite_code}</p>
-                    <button className="button1"> 다음 </button>
+                    <button className="button1"><Link to= {`/calendar/${value}/${match.params.invite_code}`}> 다음 </Link></button>
                     </div>
                     <div class="item item3">
                     </div>

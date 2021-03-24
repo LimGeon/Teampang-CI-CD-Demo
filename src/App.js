@@ -78,17 +78,19 @@
 
 
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NameInput from './commons/pages/NameInput.js';
+import DateTimeInput from './commons/pages/DateTimeInput.js';
  
 class App extends Component {
     render() {
         return (    
-            <div>
-              <Route path="/dummyPlan/:invite_code" component={NameInput}/>
-            </div>
+            <Switch>
+                <Route exact path="/calendar/:invite_code" component={NameInput}/>
+                <Route exact path="/calendar/:name/:invite_code" component={DateTimeInput}/>
+            </Switch>
         );
     }
 }
- 
+
 export default App;
