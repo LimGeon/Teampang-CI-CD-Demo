@@ -86,8 +86,8 @@ class App extends Component {
     render() {
         return (    
             <Switch>
-                <Route exact path="/calendar/:invite_code" component={NameInput}/>
-                <Route exact path="/calendar/:name/:invite_code" component={DateTimeInput}/>
+                <Route exact path="/join/:invite_code" component={NameInput}/>
+                <Route exact path="/join/:name/:invite_code" component={DateTimeInput}/>
             </Switch>
         );
     }

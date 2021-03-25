@@ -63,7 +63,7 @@ function NameInput({ match }) {
                         />
                     </form>
                     <p class="invite">invite_code: {match.params.invite_code}</p>
-                    <button className="button1"><Link to= {`/calendar/${value}/${match.params.invite_code}`}> 다음 </Link></button>
+                    <button className="button1"><Link to= {`/join/${value}/${match.params.invite_code}`}> 다음 </Link></button>
                     </div>
                     <div class="item item3">
                     </div>
