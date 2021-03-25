@@ -39,6 +39,7 @@ const DateTimeInput = (props) => {
   const [selectedDay, setSelectedDay] = useState(minimumDate);
   const [selectedTime, setSelectedTime] = useState('');
   const [selectedList, setSelectedList] = useState(initSelectedList);
+  const [selectFlag, setSelectFlag] = useState(1);
 
 
 
@@ -59,15 +60,15 @@ const DateTimeInput = (props) => {
 
   const onSelectTime = key => {
     setSelectedTime(key);
-    let newSelectedList = [...selectedList];
-    newSelectedList[key] *= -1;
-    setSelectedList(newSelectedList);
-    availableDateTime[`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`] = [...selectedList];
+    setSelectFlag(selectFlag*-1);
   }
 
-  const onSelectedDay = day => {
-    setSelectedDay(day);
-  }
+  useEffect(() => {
+    let newSelectedList = [...selectedList];
+    newSelectedList[selectedTime] *= -1;
+    setSelectedList(newSelectedList);
+    availableDateTime[`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`] = [...newSelectedList];
+  }, [selectedTime, selectFlag]);
 
   useEffect(() => {
     if(`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}` in availableDateTime){
@@ -84,7 +85,7 @@ const DateTimeInput = (props) => {
       <div>
         <Calendar
           value={selectedDay}
-          onChange={onSelectedDay}
+          onChange={setSelectedDay}
           colorPrimary="#8ec5ff"
           minimumDate={minimumDate}
           maximumDate={maximumDate}
