@@ -33,6 +33,7 @@ for (let i = 0; i < 24; i++) {
 };
 
 let availableDateTime = {};
+let availableDay = [];
 
 const DateTimeInput = (props) => {
 
@@ -68,6 +69,27 @@ const DateTimeInput = (props) => {
     newSelectedList[selectedTime] *= -1;
     setSelectedList(newSelectedList);
     availableDateTime[`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`] = [...newSelectedList];
+    let existAvailableTime = false;
+    for(let i=0; i<24; i++){
+      if(availableDateTime[`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`][i] == 1){
+        existAvailableTime = true;
+      }
+    }
+
+    const idx = availableDay.findIndex(function(item) {return item.name == `${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`});
+    if(existAvailableTime == true){
+      let availableDay_tmp = {year: selectedDay.year, month: selectedDay.month, day: selectedDay.day, className: 'availableDay', name: `${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`};
+      if(idx == -1){
+        availableDay.push(availableDay_tmp);
+      }
+    }
+    else if(existAvailableTime == false){
+      delete availableDateTime[`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`];
+      if(idx != -1){
+        availableDay.splice(idx,1);
+      }
+    }
+    console.log(availableDateTime);
   }, [selectedTime, selectFlag]);
 
   useEffect(() => {
@@ -89,6 +111,7 @@ const DateTimeInput = (props) => {
           colorPrimary="#8ec5ff"
           minimumDate={minimumDate}
           maximumDate={maximumDate}
+          customDaysClassName={availableDay}
         />
       </div>
       <div className="Timepicker">

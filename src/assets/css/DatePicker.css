@@ -669,3 +669,8 @@
     transform: translateX(0);
   }
 }
+
+.availableDay:not(.-selectedStart):not(.-selectedBetween):not(.-selectedEnd):not(.-selected) {
+  background: #5aa6f8 !important;
+  color: #fff
+}
