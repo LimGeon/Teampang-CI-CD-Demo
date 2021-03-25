@@ -1,3 +1,6 @@
+
+
+ *:focus { outline:none; }
 .menu-item {
     width: 40px;
     height: 40px;
