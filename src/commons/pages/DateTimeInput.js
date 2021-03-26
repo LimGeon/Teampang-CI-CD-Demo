@@ -71,21 +71,21 @@ const DateTimeInput = (props) => {
     availableDateTime[`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`] = [...newSelectedList];
     let existAvailableTime = false;
     for(let i=0; i<24; i++){
-      if(availableDateTime[`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`][i] == 1){
+      if(availableDateTime[`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`][i] === 1){
         existAvailableTime = true;
       }
     }
 
-    const idx = availableDay.findIndex(function(item) {return item.name == `${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`});
-    if(existAvailableTime == true){
+    const idx = availableDay.findIndex(function(item) {return item.name === `${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`});
+    if(existAvailableTime === true){
       let availableDay_tmp = {year: selectedDay.year, month: selectedDay.month, day: selectedDay.day, className: 'availableDay', name: `${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`};
-      if(idx == -1){
+      if(idx === -1){
         availableDay.push(availableDay_tmp);
       }
     }
-    else if(existAvailableTime == false){
+    else if(existAvailableTime === false){
       delete availableDateTime[`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`];
-      if(idx != -1){
+      if(idx !== -1){
         availableDay.splice(idx,1);
       }
     }
@@ -112,6 +112,7 @@ const DateTimeInput = (props) => {
           minimumDate={minimumDate}
           maximumDate={maximumDate}
           customDaysClassName={availableDay}
+          calendarClassName="responsive-calendar"
         />
       </div>
       <div className="Timepicker">

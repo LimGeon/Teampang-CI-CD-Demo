@@ -47,13 +47,14 @@ function NameInput({ match }) {
                     </div>
 
                     <div class="item item2">
-                    <h2 class="font">이름이 무엇인가요?</h2>
+                    <pre class="font">임건님으로부터<br></br>
+                    팀프앙SPRINT3 초대가 왔습니다.</pre>
                     <form className={classes.root} noValidate autoComplete="off">
                         <TextField
                             value = {value}
                             onChange = {handleChange}
                             id="standard-full-width"
-                            placeholder="팀으로팡"
+                            placeholder="이름을 입력해주세요."
                             fullWidth
                             margin="normal"
                             InputLabelProps={{
@@ -62,7 +63,7 @@ function NameInput({ match }) {
                             borderColor="#5AA6F8"
                         />
                     </form>
-                    <p class="invite">invite_code: {match.params.invite_code}</p>
+                    <br></br>
                     <Link to= {`/join/${value}/${match.params.invite_code}`}><button className="button1"> 다음 </button></Link>
                     </div>
                     <div class="item item3">
