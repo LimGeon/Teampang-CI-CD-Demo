@@ -102,7 +102,8 @@ const DateTimeInput = (props) => {
 
   
   return (
-    <div class ="all">
+    <div>
+      <div class="calendar-margin">
         <Calendar
           value={selectedDay}
           onChange={setSelectedDay}
@@ -112,6 +113,7 @@ const DateTimeInput = (props) => {
           customDaysClassName={availableDay}
           calendarClassName="responsive-calendar"
         />
+      </div>
       <div className="Timepicker">
         <p class ="month-day">시간 선택 - {selectedDay.month}월 {selectedDay.day}일</p>
         <ScrollMenu
@@ -119,7 +121,7 @@ const DateTimeInput = (props) => {
           selected={selectedTime}
           onSelect={onSelectTime}
           inertiaScrolling={true}
-          inertiaScrollingSlowdown={0.5}
+          inertiaScrollingSlowdown={0.7}
         />
       </div>
     </div>

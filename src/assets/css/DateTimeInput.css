@@ -1,6 +1,10 @@
 
-.all{
+.Timepicker{
     padding: 0px 22px 0px 22px;
+}
+
+.calendar-margin{
+    margin: 0px 0px 0px 20px;
 }
 
 .month-day{
@@ -149,7 +153,7 @@
   .Calendar__header {
     display: flex;
     color: var(--cl-color-black);
-    padding: 2em 2.9em;
+    padding: 2em 4em;
     align-items: center;
     overflow: hidden;
   }
@@ -715,7 +719,7 @@
   
   .responsive-calendar {
     /* by setting font-size, all the elements will correspond */
-    font-size: 13px !important; /* default to 10px */
+    font-size: 14px !important; /* default to 10px */
   }
 /*   
   @media (max-width: 1500px) {
