@@ -8,6 +8,11 @@
     padding: 0px 40px 0px 40px;
 }
 
+.all-check{
+    width: 20%;
+    padding: 0px 40px 0px 40px;
+}
+
 .time-item{
     font-family: Spoqa Han Sans Neo;
     font-size: 13px;
@@ -134,7 +139,7 @@ svg{
     border-radius: 1em;
     position: relative;
     user-select: none;
-    padding-top: 1.2em;
+    padding-top: 0.4em;
     display: flex;
     flex-direction: column;
     width: 33em;
@@ -169,7 +174,7 @@ svg{
   .Calendar__header {
     display: flex;
     color: var(--cl-color-black);
-    padding: 2em 4em;
+    padding: 0em 4em 1.3em 4em;
     align-items: center;
     overflow: hidden;
   }
