@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../assets/css/DatePicker.css"
-import '../../assets/css/Timepicker.css';
+import "../../assets/css/DateTimeInput.css"
 import { Calendar } from "react-modern-calendar-datepicker";
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 
@@ -103,8 +102,7 @@ const DateTimeInput = (props) => {
 
   
   return (
-    <div>
-      <div>
+    <div class ="all">
         <Calendar
           value={selectedDay}
           onChange={setSelectedDay}
@@ -114,9 +112,8 @@ const DateTimeInput = (props) => {
           customDaysClassName={availableDay}
           calendarClassName="responsive-calendar"
         />
-      </div>
       <div className="Timepicker">
-        <p>시간 선택 - {selectedDay.month}월 {selectedDay.day}일</p>
+        <p class ="month-day">시간 선택 - {selectedDay.month}월 {selectedDay.day}일</p>
         <ScrollMenu
           data={menu}
           selected={selectedTime}
@@ -124,7 +121,6 @@ const DateTimeInput = (props) => {
         />
       </div>
     </div>
-
   );
 };
 
