@@ -8,12 +8,18 @@
     padding: 0px 40px 0px 40px;
 }
 
+.time-item{
+    font-family: Spoqa Han Sans Neo;
+    font-size: 13px;
+    transform: translateX(-0.3em);
+}
+
 .calendar-margin{
     margin: 0px 7px;
 }
 
 .month-day{
-    margin: 1px 0px 13px 0px;
+    margin: 1px 0px 0px 0px;
     font-family: Spoqa Han Sans Neo;
     font-style: normal;
     font-weight: 600;
@@ -37,6 +43,7 @@
    }
    .menu-item.active {
      background-color: #5aa6f8;
+     border: solid 1.5px #5aa6f8;
    }
    .menu-item.inable {
      background-color: #ededed;
@@ -725,7 +732,7 @@
   
   .responsive-calendar {
     /* by setting font-size, all the elements will correspond */
-    font-size: 14px !important; /* default to 10px */
+    font-size: 10px !important; /* default to 10px */
   }
 /*   
   @media (max-width: 1500px) {

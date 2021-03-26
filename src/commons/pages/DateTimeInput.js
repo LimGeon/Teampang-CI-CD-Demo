@@ -41,12 +41,10 @@ const DateTimeInput = (props) => {
   const [selectedList, setSelectedList] = useState(initSelectedList);
   const [selectFlag, setSelectFlag] = useState(1);
 
-
-
   const MenuItem = ({ text, isSelected }) => {
-    return <div
+    return <div><div class="time-item">{text}</div><div
       className={`menu-item ${isSelected === 1 ? 'active' : (isSelected === 0 ? 'inable' : '')}`}
-    >{text}</div>;
+    ></div></div>;
   };
 
   const Menu = (list) =>
