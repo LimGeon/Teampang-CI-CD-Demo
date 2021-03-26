@@ -4,13 +4,12 @@
          url("../fonts/Spoqa Han Sans Neo Regular.otf") format('opentype');
 }
 
-.Timepicker{
+.padding{
     padding: 0px 40px 0px 40px;
 }
 
 .all-check{
     width: 100px;
-    padding: 0px 40px 0px 40px;
 }
 
 .time-item{
@@ -20,7 +19,9 @@
 }
 
 .calendar-margin{
-    margin: 0px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 svg{
@@ -769,3 +770,73 @@ svg{
     }
   }
   */
+
+  .font{
+    font-family: Spoqa Han Sans Neo;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 100%;
+    color: #333333;
+    margin: 0px 0px 8px 0px;
+}
+
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-evenly;
+    margin: 30px 0px 30px 0px;
+}
+
+.item1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 10%;
+}
+
+.item2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 80%;
+    margin: 0 auto;    
+}
+
+.item3{
+    flex-basis: 10%;
+}
+
+.back{
+    width: 10px;
+    height: auto;
+}
+
+.logo{
+    width: 91px;
+    height: auto;
+}
+
+.guide{
+    width: 221px;
+    height: auto;
+    margin: 10px;
+}
+
+.button1 {
+    padding: 1px 0px;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    height: 48px;
+    flex-grow: 0;
+    margin: 0px 0px 0px 0px;
+    object-fit: contain;
+    border-radius: 6px;
+    background-color: #5aa6f8;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+}
