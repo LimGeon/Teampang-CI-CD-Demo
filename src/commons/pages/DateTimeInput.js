@@ -118,6 +118,8 @@ const DateTimeInput = (props) => {
           data={menu}
           selected={selectedTime}
           onSelect={onSelectTime}
+          inertiaScrolling={true}
+          inertiaScrollingSlowdown={0.5}
         />
       </div>
     </div>
