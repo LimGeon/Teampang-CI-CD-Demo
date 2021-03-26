@@ -9,7 +9,7 @@
 }
 
 .all-check{
-    width: 20%;
+    width: 100px;
     padding: 0px 40px 0px 40px;
 }
 
@@ -145,7 +145,7 @@ svg{
     width: 33em;
     z-index: 10;
     max-width: 90vw;
-    min-height: 36.7em;
+    min-height: 0em; /*이부분 수정하면 아래 패딩 조정 가능*/
   }
   
   .DatePicker .Calendar,
@@ -742,7 +742,7 @@ svg{
   
   .responsive-calendar {
     /* by setting font-size, all the elements will correspond */
-    font-size: 10px !important; /* default to 10px */
+    font-size: 11px !important; /* default to 10px */
   }
 /*   
   @media (max-width: 1500px) {
