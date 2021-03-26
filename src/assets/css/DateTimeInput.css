@@ -743,7 +743,7 @@ svg{
   
   .responsive-calendar {
     /* by setting font-size, all the elements will correspond */
-    font-size: 11px !important; /* default to 10px */
+    font-size: 10px !important; /* default to 10px */
   }
 /*   
   @media (max-width: 1500px) {
@@ -786,7 +786,7 @@ svg{
     display: flex;
     flex-direction: row; 
     justify-content: space-evenly;
-    margin: 30px 0px 30px 0px;
+    margin: 20px 0px 20px 0px;
 }
 
 .item1{
