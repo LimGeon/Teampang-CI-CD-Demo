@@ -18,6 +18,11 @@
     margin: 0px 7px;
 }
 
+svg{
+    width: 100%;
+    height: auto;
+}
+
 .month-day{
     margin: 1px 0px 0px 0px;
     font-family: Spoqa Han Sans Neo;

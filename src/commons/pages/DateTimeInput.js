@@ -44,7 +44,9 @@ const DateTimeInput = (props) => {
   const MenuItem = ({ text, isSelected }) => {
     return <div><div class="time-item">{text}</div><div
       className={`menu-item ${isSelected === 1 ? 'active' : (isSelected === 0 ? 'inable' : '')}`}
-    ></div></div>;
+    ><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M26.4527 15.2514C26.0607 14.8935 25.4529 14.9211 25.095 15.313L18.7954 22.2118L15.6654 18.8392C15.3043 18.4501 14.6963 18.4275 14.3073 18.7885C13.9183 19.1495 13.8956 19.7576 14.2566 20.1466L18.0279 24.2101C18.0635 24.2577 18.1041 24.3026 18.1496 24.3441C18.5415 24.702 19.1493 24.6744 19.5072 24.2825L26.5143 16.609C26.8722 16.2171 26.8446 15.6092 26.4527 15.2514Z" fill={isSelected === 1 ? "white" : (isSelected === 0 ? '#EDEDED' : "white")}/>
+    </svg></div></div>;
   };
 
   const Menu = (list) =>
