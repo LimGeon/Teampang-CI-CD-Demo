@@ -24,18 +24,18 @@
 }
 
 @font-face {
-    font-family: Spoqa Han Sans Neo;
-    src: url("../fonts/SpoqaHanSansNeo-Bold.ttf") format('truetype'),
-         url("../fonts/Spoqa Han Sans Neo Bold.otf") format('opentype');
+    font-family: Spoqa Han Sans Neo-Medium;
+    src: url("../fonts/SpoqaHanSansNeo-Regular.ttf") format('truetype'),
+         url("../fonts/Spoqa Han Sans Neo Regular.otf") format('opentype');
+}
+
+.font{
+    font-family: Spoqa Han Sans Neo-Medium;
     font-style: normal;
     font-weight: 500;
     font-size: 22px;
     line-height: 130%;
     color: #333333;
-}
-
-.font{
-    font-family: Spoqa Han Sans Neo;
 }
 .container{
     height: 80vh;
