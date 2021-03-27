@@ -175,7 +175,7 @@ svg{
   .Calendar__header {
     display: flex;
     color: var(--cl-color-black);
-    padding: 0em 4em 1.3em 4em;
+    padding: 0em 1.3em 1.3em 1.3em;
     align-items: center;
     overflow: hidden;
   }
@@ -508,7 +508,7 @@ svg{
     font-family: Spoqa Han Sans Neo;
     font-size: 1.2em;
     margin-bottom: 0.7em;
-    padding: 0 2.6em;
+    padding: 0 0em;
     position: relative;
   }
   
@@ -528,7 +528,7 @@ svg{
   .Calendar__section {
     display: flex;
     flex-direction: column;
-    padding: 0 3.2em;
+    padding: 0 0em;
     position: absolute;
     color: var(--cl-color-black);
     top: 0;
@@ -542,8 +542,8 @@ svg{
   }
   
   .Calendar__section.-hiddenPrevious {
-    opacity: 0.5;
-    transform: translateX(-90%);
+    opacity: 0.0;
+    transform: translateX(-100%);
   }
   
   .Calendar.-rtl .Calendar__section.-hiddenPrevious {
@@ -551,8 +551,8 @@ svg{
   }
   
   .Calendar__section.-hiddenNext {
-    opacity: 0.5;
-    transform: translateX(90%);
+    opacity: 0.0;
+    transform: translateX(100%);
   }
   
   .Calendar.-rtl .Calendar__section.-hiddenNext {
