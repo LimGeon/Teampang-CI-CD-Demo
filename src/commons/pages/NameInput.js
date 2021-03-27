@@ -38,35 +38,35 @@ function NameInput({ match }) {
 
     return (
         <React.Fragment>
-            <div class="all">
+            <div class="all2">
                 <Modal open={modalOpen} close={closeModal}>
                 </Modal>
-                <div class="container">
-                    <div class="header item item1">
+                <div class="container1">
+                    <div class="header item11">
                         <img src="/HeaderMain.png" />
                     </div>
 
-                    <div class="item item2">
-                    <pre class="font">임건님으로부터<br></br>
+                    <div class="item22">
+                        <pre class="font2">임건님으로부터<br></br>
                     팀프앙SPRINT3 초대가 왔습니다.</pre>
-                    <form className={classes.root} noValidate autoComplete="off">
-                        <TextField
-                            value = {value}
-                            onChange = {handleChange}
-                            id="standard-full-width"
-                            placeholder="이름을 입력해주세요."
-                            fullWidth
-                            margin="normal"
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            borderColor="#5AA6F8"
-                        />
-                    </form>
-                    <br></br>
-                    <Link to= {`/join/${value}/${match.params.invite_code}`}><button className="button1"> 다음 </button></Link>
+                        <form className={classes.root} noValidate autoComplete="off">
+                            <TextField
+                                value={value}
+                                onChange={handleChange}
+                                id="standard-full-width"
+                                placeholder="이름을 입력해주세요."
+                                fullWidth
+                                margin="normal"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                borderColor="#5AA6F8"
+                            />
+                        </form>
+                        <br></br>
+                        <Link to={`/join/${value}/${match.params.invite_code}`}><button className="button11"> 다음 </button></Link>
                     </div>
-                    <div class="item item3">
+                    <div class="item33">
                     </div>
                 </div>
             </div>

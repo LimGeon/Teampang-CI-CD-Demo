@@ -1,4 +1,4 @@
-.button1 {
+.button11 {
     padding: 1px 0px;
     color: #fff;
     font-size: 16px;
@@ -19,7 +19,7 @@
     height: 150px;
 }
 
-.all{
+.all2{
     padding: 0px 22px 0px 22px;
 }
 
@@ -29,7 +29,7 @@
          url("../fonts/Spoqa Han Sans Neo Regular.otf") format('opentype');
 }
 
-.font{
+.font2{
     font-family: Spoqa Han Sans Neo-Medium;
     font-style: normal;
     font-weight: 500;
@@ -37,26 +37,22 @@
     line-height: 130%;
     color: #333333;
 }
-.container{
+.container1{
     height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-.item{
-
-}
-
-.item1{
+.item11{
     flex-basis: 25%
 }
 
-.item2{
+.item22{
     flex-basis: 45%
 }
 
-.item3{
+.item33{
     flex-basis: 30%
 }
 
