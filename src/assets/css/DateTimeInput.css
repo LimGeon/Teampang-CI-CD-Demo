@@ -5,7 +5,7 @@
 }
 
 .padding{
-    padding: 0px 40px 0px 40px;
+    padding: 0px 22px 0px 22px;
 }
 
 .all-check{
@@ -33,7 +33,7 @@ svg{
     margin: 1px 0px 0px 0px;
     font-family: Spoqa Han Sans Neo;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 14px;
     line-height: 130%;
     color: #333333;
@@ -521,7 +521,8 @@ svg{
   
   .Calendar__sectionWrapper {
     position: relative;
-    min-height: 25.8em;
+    min-height: 32.5em;
+    /* min-height: 25.8em; */
     overflow: hidden;
   }
   
@@ -577,7 +578,7 @@ svg{
     display: block;
     width: calc(100% / 7);
     text-align: center;
-    padding: calc(0.25em - 1px) 0;
+    padding: calc(1em - 1px) 0;
     font-family: Spoqa Han Sans Neo;
     font-size: 1.6em;
     border-radius: 50%;
