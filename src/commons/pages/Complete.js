@@ -80,7 +80,7 @@ function Complete() {
                         <pre class="font4">일정이 확정되면 알려드리겠습니다.</pre>
                     </div>
                     <div class="item33">
-                        <Link to={`/`}><button className="button1"> 완료 </button></Link>
+                        <Link to={`/`}><button className="button1"> 홈으로 가기 </button></Link>
                     </div>
                 </div>
             </div>
