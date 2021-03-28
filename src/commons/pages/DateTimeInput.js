@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../assets/css/DateTimeInput.css"
 import { Calendar } from "react-modern-calendar-datepicker";
 import ScrollMenu from 'react-horizontal-scrolling-menu';
-
+import { Link } from 'react-router-dom';
 
 const minimumDate = {
   year: 2021,
@@ -34,7 +34,7 @@ for (let i = 0; i < 24; i++) {
 let availableDateTime = {};
 let availableDay = [];
 
-const DateTimeInput = (match) => {
+const DateTimeInput = ({match}) => {
 
   const [selectedDay, setSelectedDay] = useState(minimumDate);
   const [selectedTime, setSelectedTime] = useState('');
@@ -106,9 +106,9 @@ const DateTimeInput = (match) => {
       <div class="padding">
         <div class="container">
           <div class="item1">
-            <svg class="back" width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Link to={`/join/${match.params.invite_code}`}><svg class="back" width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10.9998 19L0.999817 9.76923L10.4998 1" stroke="#828282" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            </svg></Link>
           </div>
           <div class="item2">
             <svg class="logo" width="91" height="23" viewBox="0 0 91 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -151,6 +151,7 @@ const DateTimeInput = (match) => {
           onSelect={onSelectTime}
           inertiaScrolling={true}
           inertiaScrollingSlowdown={0.7}
+          alignCenter={true}
         />
         <svg class="guide" width="221" height="14" viewBox="0 0 221 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.799 4.016H20.643V3.268H22.799V0.958H23.712V8.328H22.799V4.016ZM20.874 6.689C20.324 6.47633 19.8473 6.16833 19.444 5.765C19.0407 5.35433 18.7327 4.88133 18.52 4.346C18.3073 4.94 17.9883 5.46067 17.563 5.908C17.145 6.348 16.6463 6.68533 16.067 6.92L15.594 6.205C15.9607 6.073 16.2943 5.88967 16.595 5.655C16.903 5.42033 17.1633 5.15267 17.376 4.852C17.596 4.544 17.7647 4.214 17.882 3.862C17.9993 3.50267 18.058 3.136 18.058 2.762V1.541H18.96V2.795C18.96 3.13967 19.0187 3.477 19.136 3.807C19.2533 4.12967 19.4147 4.434 19.62 4.72C19.8327 4.99867 20.0857 5.248 20.379 5.468C20.6723 5.688 20.995 5.864 21.347 5.996L20.874 6.689ZM23.943 9.857V10.594H17.365V7.514H18.267V9.857H23.943ZM34.0291 0.958V6.931H33.1601V4.258H31.8401V6.865H30.9821V1.134H31.8401V3.521H33.1601V0.958H34.0291ZM30.4101 6.139C30.1241 6.19767 29.8455 6.24533 29.5741 6.282C29.3101 6.31867 29.0351 6.348 28.7491 6.37C28.4631 6.38467 28.1588 6.39567 27.8361 6.403C27.5135 6.41033 27.1541 6.414 26.7581 6.414H26.1311V1.673H29.9371V2.399H27.0001V3.642H29.8271V4.335H27.0001V5.677C27.3521 5.677 27.6748 5.67333 27.9681 5.666C28.2615 5.65867 28.5401 5.644 28.8041 5.622C29.0681 5.6 29.3211 5.57433 29.5631 5.545C29.8125 5.50833 30.0655 5.46433 30.3221 5.413L30.4101 6.139ZM27.3961 7.448H34.0291V10.814H33.1271V8.174H27.3961V7.448ZM43.5763 4.357H36.9983V1.101H37.8893V2.036H42.6853V1.101H43.5763V4.357ZM42.6853 2.718H37.8893V3.664H42.6853V2.718ZM40.7273 5.886V6.854H43.5983V9.054H37.8013V10.011H43.8953V10.704H36.9213V8.394H42.7073V7.536H36.8883V6.854H39.8253V5.886H35.8103V5.16H44.7423V5.886H40.7273ZM55.1144 5.699H53.5304V10.814H52.6284V0.947H53.5304V4.951H55.1144V5.699ZM50.9784 2.003C50.9784 2.707 50.8941 3.389 50.7254 4.049C50.5568 4.709 50.2928 5.336 49.9334 5.93C49.5741 6.524 49.1121 7.07767 48.5474 7.591C47.9828 8.097 47.3008 8.548 46.5014 8.944L46.0064 8.24C47.2971 7.59467 48.2724 6.81733 48.9324 5.908C49.5998 4.99867 49.9848 3.94633 50.0874 2.751H46.4684V2.003H50.9784Z" fill="#8A8A8A" />

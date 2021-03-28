@@ -521,7 +521,7 @@ svg{
   
   .Calendar__sectionWrapper {
     position: relative;
-    min-height: 32.5em;
+    min-height: 31em;
     /* min-height: 25.8em; */
     overflow: hidden;
   }
@@ -744,7 +744,7 @@ svg{
   
   .responsive-calendar {
     /* by setting font-size, all the elements will correspond */
-    font-size: 10px !important; /* default to 10px */
+    font-size: 12px !important; /* default to 10px */
   }
 /*   
   @media (max-width: 1500px) {
