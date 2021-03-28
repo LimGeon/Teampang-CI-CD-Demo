@@ -746,19 +746,29 @@ svg{
     /* by setting font-size, all the elements will correspond */
     font-size: 12px !important; /* default to 10px */
   }
-/*   
-  @media (max-width: 1500px) {
+   
+  @media (max-width: 430px) {
+    .responsive-calendar {
+      font-size: 11px !important;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .responsive-calendar {
+      font-size: 10px !important;
+    }
+  }
+  @media (max-width: 350px) {
+    .responsive-calendar {
+      font-size: 9px !important;
+    }
+  }
+  @media (max-width: 300px) {
     .responsive-calendar {
       font-size: 8px !important;
     }
   }
-  
-  @media (max-width: 1200px) {
-    .responsive-calendar {
-      font-size: 13px !important;
-    }
-  }
-  
+ /*
   @media (max-width: 768px) {
     .responsive-calendar {
       font-size: 10px !important;
@@ -776,7 +786,7 @@ svg{
     font-family: Spoqa Han Sans Neo;
     font-style: normal;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 19px;
     line-height: 100%;
     color: #333333;
     margin: 0px 0px 8px 0px;
