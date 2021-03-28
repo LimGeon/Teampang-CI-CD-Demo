@@ -851,3 +851,11 @@ svg{
     cursor: pointer;
     border: 0;
 }
+
+.all-container{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
