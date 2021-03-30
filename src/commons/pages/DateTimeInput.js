@@ -208,7 +208,11 @@ const DateTimeInput = ({ match }) => {
           <circle cx="174.5" cy="6.5" r="2.5" fill="#ED6863" />
           <path d="M136.402 4.57859C136.279 4.46669 136.089 4.47532 135.977 4.59785L134.003 6.75473L133.022 5.7003C132.909 5.57868 132.718 5.57158 132.596 5.68446C132.474 5.79734 132.467 5.98744 132.58 6.10907L133.762 7.37953C133.773 7.39439 133.786 7.40843 133.8 7.42141C133.923 7.53331 134.113 7.52468 134.226 7.40215L136.421 5.00305C136.533 4.88052 136.525 4.69048 136.402 4.57859Z" fill="white" />
         </svg>
-        <Link to={`/complete`}><button className="button1"> 완료 </button></Link>
+        {Object.keys(availableDateTime).length === 0 ?
+          <button className="button33"> 완료 </button>
+          :
+          <Link to={`/complete`}><button className="button1"> 완료 </button></Link>
+        }
       </div>
     </div>
   );
