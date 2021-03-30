@@ -583,7 +583,7 @@ svg{
     font-size: 1.6em;
     border-radius: 50%;
     transition: 0.2s;
-    border: 1px solid transparent;
+    border: 2px solid #fff;
     margin-bottom: 0.3em;
     color: rgba(0, 0, 0, 0.8);
     display: flex;
