@@ -33,7 +33,6 @@ function NameInput({ match }) {
     const closeModal = () => {
         setModalOpen(false);
     }
-
     const classes = useStyles();
 
     return (
@@ -64,7 +63,12 @@ function NameInput({ match }) {
                             />
                         </form>
                         <br></br>
+                        {value === "" ?
+                        <button className="button33"> 다음 </button>
+                        :
                         <Link to={`/join/${value}/${match.params.invite_code}`}><button className="button11"> 다음 </button></Link>
+                        }
+    
                     </div>
                     <div class="item33">
                     </div>
