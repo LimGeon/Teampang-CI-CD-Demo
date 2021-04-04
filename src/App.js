@@ -82,7 +82,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NameInput from './commons/pages/NameInput.js';
 import DateTimeInput from './commons/pages/DateTimeInput.js';
 import Complete from './commons/pages/Complete.js';
-
+import ZoomAuthRedirect from './commons/pages/ZoomAuthRedirect.js';
 class App extends Component {
     render() {
         return (
@@ -97,6 +97,7 @@ class App extends Component {
                     window.location.href = 'https://www.notion.so/3a9769c2c1ea4b9390f38e4c385a417f';
                     return null;
                 }} />
+                <Route path='/zoom/auth/' component={ZoomAuthRedirect}/>
                 <Route exact path="/complete" component={Complete} />
             </Switch>
         );

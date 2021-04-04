@@ -4,6 +4,7 @@ import { Calendar } from "react-modern-calendar-datepicker";
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import { Link } from 'react-router-dom';
 
+
 const minimumDate = {
   year: 2021,
   month: 4,
@@ -213,6 +214,7 @@ const DateTimeInput = ({ match }) => {
           :
           <Link to={`/complete`}><button className="button1"> 완료 </button></Link>
         }
+
       </div>
     </div>
   );
