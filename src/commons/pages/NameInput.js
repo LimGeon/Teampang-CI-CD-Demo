@@ -43,7 +43,7 @@ function NameInput({ match }) {
                 setLoading(true);
                 
                 const response = await axios.get(
-                    `/meetings?code=${match.params.invite_code}`
+                    `http://ec2-13-209-91-113.ap-northeast-2.compute.amazonaws.com:80/meetings?code=${match.params.invite_code}`
                 );
                 
                 setMeeting(response.data.data); // 데이터는 response.data 안에 들어있습니다.
