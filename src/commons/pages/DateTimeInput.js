@@ -160,7 +160,7 @@ const DateTimeInput = ({ match }) => {
 
           </div>
         </div>
-        <pre class="font5">가능한 일정을 모두 선택해주세요.</pre>
+        <pre class="font5">가능한 시간을 모두 선택해주세요.</pre>
         <div class="all-click" onClick={allCheckEvent}>
           {allCheck === -1 ?
             <svg class="all-check" width="107" height="29" viewBox="0 0 107 29" fill="none" xmlns="http://www.w3.org/2000/svg">
