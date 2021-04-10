@@ -28,7 +28,7 @@ function NameInput({ match }) {
     const [value, setValue] = useState("");
 
     // API 호출용
-    const [meeting, setMeeting] = useState([]);
+    const [meeting, setMeeting] = useState({"author":"", "name":""});
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
