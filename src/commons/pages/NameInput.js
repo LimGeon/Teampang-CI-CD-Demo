@@ -28,7 +28,7 @@ function NameInput({ match }) {
     const [value, setValue] = useState("");
 
     // API 호출용
-    const [meeting, setMeeting] = useState(null);
+    const [meeting, setMeeting] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -38,14 +38,14 @@ function NameInput({ match }) {
             try {
                 // 요청이 시작 할 때에는 error 와 users 를 초기화하고
                 setError(null);
-                setMeeting(null);
+                setMeeting([]);
                 // loading 상태를 true 로 바꿉니다.
                 setLoading(true);
                 
                 const response = await axios.get(
-                    `http://ec2-13-209-91-113.ap-northeast-2.compute.amazonaws.com:80/meetings?code=${match.params.invite_code}`
+                    `/meetings?code=${match.params.invite_code}`
                 );
-                console.log(response.data.data);
+                console.log(response.data);
                 setMeeting(response.data.data); // 데이터는 response.data 안에 들어있습니다.
             } catch (e) {
                 setError(e);
@@ -85,7 +85,7 @@ function NameInput({ match }) {
 
                     <div class="item22">
                         <pre class="font2">{meeting.author}님으로부터<br></br>
-                    {meeting.name} 초대가 왔습니다.</pre>
+                     {meeting.name} 초대가 왔습니다.</pre>
                         <form className={classes.root} noValidate autoComplete="off">
                             <TextField
                                 value={value}

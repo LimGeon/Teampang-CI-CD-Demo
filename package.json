@@ -49,5 +49,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3"
-  }
+  },
+  "proxy": "http://ec2-13-209-91-113.ap-northeast-2.compute.amazonaws.com/"
+  
 }
