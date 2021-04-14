@@ -5,7 +5,6 @@ import TextField from '@material-ui/core/TextField';
 import "../../assets/css/NameInput.css";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-const teampang_base = "http://ec2-13-209-91-113.ap-northeast-2.compute.amazonaws.com:80";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,8 +18,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));    
 
-
-
 function NameInput({ match }) {
 
     // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
@@ -28,7 +25,7 @@ function NameInput({ match }) {
     const [value, setValue] = useState("");
 
     // API 호출용
-    const [meeting, setMeeting] = useState({"author":"", "name":""});
+    const [meeting, setMeeting] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -43,9 +40,9 @@ function NameInput({ match }) {
                 setLoading(true);
                 
                 const response = await axios.get(
-                    `/meetings?code=${match.params.invite_code}`
+                    `https://api.teampang.app/meetings?code=${match.params.invite_code}`
                 );
-                console.log(response.data);
+                console.log(response.data.data);
                 setMeeting(response.data.data); // 데이터는 response.data 안에 들어있습니다.
             } catch (e) {
                 setError(e);
@@ -75,17 +72,17 @@ function NameInput({ match }) {
 
     return (
         <React.Fragment>
-            <div class="all2">
+            <div className="all2">
                 <Modal open={modalOpen} close={closeModal}>
                 </Modal>
-                <div class="container1">
-                    <div class="header item11">
+                <div className="container1">
+                    <div className="header item11">
                         <img src="/HeaderMain.png" />
                     </div>
 
-                    <div class="item22">
-                        <pre class="font2">{meeting.author}님으로부터<br></br>
-                     {meeting.name} 초대가 왔습니다.</pre>
+                    <div className="item22">
+                        <pre className="font2">{meeting.author}님으로부터<br></br>
+                     {meeting.name}초대가 왔습니다.</pre>
                         <form className={classes.root} noValidate autoComplete="off">
                             <TextField
                                 value={value}
@@ -108,7 +105,7 @@ function NameInput({ match }) {
                         }
 
                     </div>
-                    <div class="item33">
+                    <div className="item33">
                     </div>
                 </div>
             </div>
