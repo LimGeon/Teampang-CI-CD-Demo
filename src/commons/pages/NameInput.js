@@ -55,7 +55,7 @@ function NameInput({ match }) {
 
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
-
+    console.log(meeting);
     
 
     const handleChange = e => {
@@ -82,7 +82,7 @@ function NameInput({ match }) {
 
                     <div className="item22">
                         <pre className="font2">{meeting.author}님으로부터<br></br>
-                     {meeting.name}초대가 왔습니다.</pre>
+                     {meeting.name} 초대가 왔습니다.</pre>
                         <form className={classes.root} noValidate autoComplete="off">
                             <TextField
                                 value={value}

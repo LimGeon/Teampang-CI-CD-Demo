@@ -3,51 +3,154 @@ import "../../assets/css/DateTimeInput.css"
 import { Calendar } from "react-modern-calendar-datepicker";
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
-const minimumDate = {
-  year: 2021,
-  month: 4,
-  day: 1
-};
-
-const maximumDate = {
-  year: 2021,
-  month: 4,
-  day: 17
-};
 
 const list = [];
-const minimumTime = 18;
-const maximumTime = 21;
+
 
 let TimePickerTranslate = -1;
-if (minimumTime != 0 && minimumTime <= 14) TimePickerTranslate = -43 * minimumTime + 20;
-else if (14 < minimumTime) TimePickerTranslate = 14 * -43 + 20;
+
 
 let initSelectedList = []
 let allCheckedList = []
-for (let i = 0; i < 24; i++) {
-  let input = { name: i }
-  list.push(input)
-  if (minimumTime <= i && i <= maximumTime) {
-    initSelectedList.push(-1);
-    allCheckedList.push(1);
-  } else {
-    initSelectedList.push(0);
-    allCheckedList.push(0);
-  }
-};
+
 
 let availableDateTime = {};
+let postData = [];
 let availableDay = [];
 
 const DateTimeInput = ({ match }) => {
-  const [selectedDay, setSelectedDay] = useState(minimumDate);
+  const [selectedDay, setSelectedDay] = useState("");
   const [selectedTime, setSelectedTime] = useState('');
   const [selectedList, setSelectedList] = useState(initSelectedList);
   const [selectFlag, setSelectFlag] = useState(1);
   const [allCheck, setAllCheck] = React.useState(-1);
+  const [minimumDate, setMinimumDate] = useState({});
+  const [maximumDate, setMaximumDate] = useState({});
+  const [minimumTime, setMinimumTime] = useState(0);
+  const [maximumTime, setMaximumTime] = useState(23);
+
+  const [meeting, setMeeting] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const postAvailableDate = () => {
+    for (let key in availableDateTime) {
+      for (let i = 0; i < 24; i++) {
+        if (availableDateTime[key][i] == 1) {
+          const tmp = {
+            date: key,
+            time: (i < 10) ? `0${i}:00` : `${i}:00`
+          }
+          postData.push(tmp)
+        }
+      }
+    }
+
+    console.log({
+      meeting_id: `${meeting.id}`,
+      code: `${match.params.invite_code}`,
+      name: `${match.params.name}`,
+      availabable_times: postData
+    })
+
+    axios.post('https://api.teampang.app/participants', {
+      meeting_id: `${meeting.id}`,
+      code: `${match.params.invite_code}`,
+      name: `${match.params.name}`,
+      available_times: postData
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+
+  useEffect(() => {
+    const fetchMeeting = async () => {
+      try {
+        // 요청이 시작 할 때에는 error 와 users 를 초기화하고
+        setError(null);
+        setMeeting([]);
+        // loading 상태를 true 로 바꿉니다.
+        setLoading(true);
+
+        const response = await axios.get(
+          `https://api.teampang.app/meetings?code=${match.params.invite_code}`
+        );
+        setValues(response.data.data);
+        setMeeting(response.data.data); // 데이터는 response.data 안에 들어있습니다.
+
+
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+
+    };
+    const setValues = (meeting) => {
+      const startDate_tmp = {
+        year: meeting.start_date,
+        month: meeting.start_date,
+        day: meeting.start_date
+      }
+      startDate_tmp.year = "" + startDate_tmp.year;
+      startDate_tmp.year = Number(startDate_tmp.year.substring(0, 4));
+      startDate_tmp.month = "" + startDate_tmp.month;
+      startDate_tmp.month = Number(startDate_tmp.month.substring(5, 7));
+      startDate_tmp.day = "" + startDate_tmp.day;
+      startDate_tmp.day = Number(startDate_tmp.day.substring(8, 10));
+
+      const endDate_tmp = {
+        year: meeting.end_date,
+        month: meeting.end_date,
+        day: meeting.end_date
+      }
+      endDate_tmp.year = "" + endDate_tmp.year;
+      endDate_tmp.year = Number(endDate_tmp.year.substring(0, 4));
+      endDate_tmp.month = "" + endDate_tmp.month;
+      endDate_tmp.month = Number(endDate_tmp.month.substring(5, 7));
+      endDate_tmp.day = "" + endDate_tmp.day;
+      endDate_tmp.day = Number(endDate_tmp.day.substring(8, 10));
+
+      
+
+      for (let i = 0; i < 24; i++) {
+        let input = { name: i }
+        list.push(input)
+        if (Number(meeting.start_time.substring(0,2)) <= i && i < Number(meeting.end_time.substring(0,2))) {
+          initSelectedList.push(-1);
+          allCheckedList.push(1);
+        } else {
+          initSelectedList.push(0);
+          allCheckedList.push(0);
+        }
+      };
+
+      setMinimumTime(Number(meeting.start_time.substring(0,2)));
+      setMaximumTime(Number(meeting.end_time.substring(0,2)));
+
+      console.log(meeting.start_time + meeting.end_time);
+      console.log(initSelectedList);
+      setSelectedList(initSelectedList);
+
+      if (minimumTime != 0 && minimumTime <= 14) TimePickerTranslate = -43 * minimumTime + 20;
+      else if (14 < minimumTime) TimePickerTranslate = 14 * -43 + 20;
+
+      setSelectedDay(startDate_tmp);
+      setMinimumDate(startDate_tmp);
+      setMaximumDate(endDate_tmp);
+      
+
+      
+    }
+    fetchMeeting();
+  }, []);
 
   React.useEffect(() => {
     const start = new Date(`${minimumDate.year}/${minimumDate.month}/${minimumDate.day}`);
@@ -68,8 +171,6 @@ const DateTimeInput = ({ match }) => {
       setSelectedList([...initSelectedList]);
       availableDay = [];
     }
-    console.log(availableDateTime);
-
   }, [allCheck]);
 
   const MenuItem = ({ text, isSelected }) => {
@@ -133,8 +234,10 @@ const DateTimeInput = ({ match }) => {
       setSelectedList(initSelectedList);
     }
   }, [selectedDay]);
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
 
-
+  console.log(availableDateTime);
   return (
 
     <div>
@@ -212,7 +315,7 @@ const DateTimeInput = ({ match }) => {
         {Object.keys(availableDateTime).length === 0 ?
           <button className="button33"> 완료 </button>
           :
-          <Link to={`/complete`}><button className="button1"> 완료 </button></Link>
+          <Link to={`/complete`}><button className="button1" onClick={postAvailableDate}> 완료 </button></Link>
         }
 
       </div>
