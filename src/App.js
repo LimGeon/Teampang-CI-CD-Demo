@@ -82,12 +82,18 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NameInput from './commons/pages/NameInput.js';
 import DateTimeInput from './commons/pages/DateTimeInput.js';
 import Complete from './commons/pages/Complete.js';
+import MeetingDetail from './commons/pages/MeetingDetail.js';
 import ZoomAuthRedirect from './commons/pages/ZoomAuthRedirect.js';
 class App extends Component {
     render() {
         return (
             <Switch>
+                <Route exact path='/' component={() => {
+                    window.location.href = 'https://www.teampang.app/';
+                    return null;
+                }} />
                 <Route exact path="/join/:invite_code" component={NameInput} />
+                <Route exact path="/meeting/detail/:invite_code" component={MeetingDetail} />
                 <Route exact path="/join/:name/:invite_code" component={DateTimeInput} />
                 <Route path='/term-of-service' component={() => {
                     window.location.href = 'https://www.notion.so/5477c91619944d66b4fec74fb1d5ca49';
