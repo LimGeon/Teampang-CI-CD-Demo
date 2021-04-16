@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Modal from '../components/Modals/Modal.js';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import "../../assets/css/NameInput.css";
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function MeetingDetail({ match }) {
 
-    // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
-    const [modalOpen, setModalOpen] = useState(true);
-    const [value, setValue] = useState("");
-
     // API 호출용
     const [meeting, setMeeting] = useState([]);
+    const [confirmed_times, setConfirmed_times] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -25,12 +18,12 @@ function MeetingDetail({ match }) {
                 setMeeting([]);
                 // loading 상태를 true 로 바꿉니다.
                 setLoading(true);
-                
+
                 const response = await axios.get(
                     `https://api.teampang.app/meetings?code=${match.params.invite_code}`
                 );
-                console.log(response.data.data);
                 setMeeting(response.data.data); // 데이터는 response.data 안에 들어있습니다.
+                setConfirmed_times(response.data.data.confirmed_times);
             } catch (e) {
                 setError(e);
             }
@@ -42,26 +35,11 @@ function MeetingDetail({ match }) {
 
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
-    
-    
 
-    const handleChange = e => {
-        setValue(e.target.value);
-    }
-
-    // const openModal = () => {
-    //     setModalOpen(true);
-    // }
-    const closeModal = () => {
-        setModalOpen(false);
-    }
-    
 
     return (
         <React.Fragment>
             <div className="all2">
-                <Modal open={modalOpen} close={closeModal}>
-                </Modal>
                 <div className="container1">
                     <div className="header item11">
                         <img src="/HeaderMain.png" />
@@ -69,14 +47,13 @@ function MeetingDetail({ match }) {
 
                     <div className="item22">
                         <pre className="font2">{meeting.name}의 일정입니다.<br></br></pre>
+                        
+                        {confirmed_times.map(confirmed_time => {
+                            return <p>{confirmed_time.start_datetime}<br></br>{confirmed_time.place}<br></br></p>
+                        })}
 
                         <br></br>
-                        {value === "" ?
-                            <button className="button33"> 다음 </button>
-                            :
-                            <Link to={`/join/${value}/${match.params.invite_code}`}><button className="button11"> 다음 </button></Link>
-                        }
-
+                        <a href={"https://www.teampang.app"}><button className="button11"> 홈으로 가기 </button></a>
                     </div>
                     <div className="item33">
                     </div>
