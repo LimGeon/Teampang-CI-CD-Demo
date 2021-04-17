@@ -36,7 +36,7 @@ function MeetingDetail({ match }) {
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
 
-
+    console.log(confirmed_times[0]);
     return (
         <React.Fragment>
             <div className="all2">
@@ -49,7 +49,15 @@ function MeetingDetail({ match }) {
                         <pre className="font2">{meeting.name}의 일정입니다.<br></br></pre>
                         
                         {confirmed_times.map(confirmed_time => {
-                            return <p>{confirmed_time.start_datetime}<br></br>{confirmed_time.place}<br></br></p>
+                            return <pre className="font2">{((confirmed_time.place) == null) ? 
+                                "장소 미정" : (confirmed_time.place)}<br></br> 
+                                {confirmed_time.start_datetime.substring(0,10)}, 
+                                {(Number(confirmed_time.start_datetime.substring(11,13))<12) ? 
+                                ` 오전 ${Number(confirmed_time.start_datetime.substring(11,13))}시`: (
+                                    (Number(confirmed_time.start_datetime.substring(11,13)) == 12) ?
+                                    ` 오후 ${Number(confirmed_time.start_datetime.substring(11,13))}시` :
+                                    ` 오후 ${Number(confirmed_time.start_datetime.substring(11,13))-12}시`
+                                    )}</pre>
                         })}
 
                         <br></br>

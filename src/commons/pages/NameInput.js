@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme) => ({
 
 function NameInput({ match }) {
 
+    var check_num = /[0-9]/;
+    var check_eng = /[a-zA-Z]/;
+    var check_spc = /[ㄱ-ㅎ|ㅏ-ㅣ|~!@#$%^&*()_+|<>?:{}]/;
+    var check_kor = /[가-힣]/;
+
     // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
     const [modalOpen, setModalOpen] = useState(true);
     const [value, setValue] = useState("");
@@ -55,7 +60,7 @@ function NameInput({ match }) {
 
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
-    console.log(meeting);
+    
     
 
     const handleChange = e => {
@@ -101,7 +106,12 @@ function NameInput({ match }) {
                         {value === "" ?
                             <button className="button33"> 다음 </button>
                             :
+                            (
+                            (check_spc.test(value) == true) ?
+                            <button className="button33"> 한글, 영문, 숫자만 입력해주세요. </button>
+                            :
                             <Link to={`/join/${value}/${match.params.invite_code}`}><button className="button11"> 다음 </button></Link>
+                            )
                         }
 
                     </div>

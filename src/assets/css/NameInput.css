@@ -74,6 +74,25 @@
     color: #828282;
     margin: 12px 0px 10px 0px;
 }
+
+.font5{
+    font-family: Spoqa Han Sans Neo-Medium;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 130%;
+    color: #333333;
+}
+
+.font6{
+    font-family: Spoqa Han Sans Neo-Medium;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 130%;
+    color: #333333;
+}
+
 .container1{
     height: 80vh;
     display: flex;
