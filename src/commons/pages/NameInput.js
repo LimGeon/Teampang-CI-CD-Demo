@@ -35,6 +35,9 @@ function NameInput({ match }) {
     const [error, setError] = useState(null);
 
     const classes = useStyles();
+
+    //const duplicateName
+
     useEffect(() => {
         const fetchMeeting = async () => {
             try {
@@ -89,6 +92,7 @@ function NameInput({ match }) {
                      {meeting.name} 초대가 왔습니다.</pre>
                         <form className={classes.root} noValidate autoComplete="off">
                             <TextField
+                                error = {false}
                                 value={value}
                                 onChange={handleChange}
                                 id="standard-full-width"
@@ -99,6 +103,8 @@ function NameInput({ match }) {
                                     shrink: true,
                                 }}
                                 borderColor="#5AA6F8"
+                                // error={true}
+                                // helperText="안녕하세요"
                             />
                         </form>
                         <br></br>

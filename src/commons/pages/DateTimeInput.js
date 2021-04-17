@@ -10,9 +10,6 @@ import axios from 'axios';
 const list = [];
 
 
-let TimePickerTranslate = -1;
-
-
 let initSelectedList = []
 let allCheckedList = []
 
@@ -31,6 +28,7 @@ const DateTimeInput = ({ match }) => {
   const [maximumDate, setMaximumDate] = useState({});
   const [minimumTime, setMinimumTime] = useState(0);
   const [maximumTime, setMaximumTime] = useState(23);
+  const [TimePickerTranslate, setTimePickerTranslate] = useState(-1);
 
   const [meeting, setMeeting] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -77,6 +75,7 @@ const DateTimeInput = ({ match }) => {
           `https://api.teampang.app/meetings?code=${match.params.invite_code}`
         );
         setValues(response.data.data);
+        allCheckEvent();
         setMeeting(response.data.data); // 데이터는 response.data 안에 들어있습니다.
 
 
@@ -112,7 +111,6 @@ const DateTimeInput = ({ match }) => {
       endDate_tmp.day = Number(endDate_tmp.day.substring(8, 10));
 
 
-
       for (let i = 0; i < 24; i++) {
         let input = { name: i }
         list.push(input)
@@ -143,10 +141,12 @@ const DateTimeInput = ({ match }) => {
       setMinimumTime(Number(meeting.start_time.substring(0, 2)));
       setMaximumTime(Number(meeting.end_time.substring(0, 2)));
 
+      if (Number(meeting.start_time.substring(0, 2)) != 0 && Number(meeting.start_time.substring(0, 2)) <= 14) setTimePickerTranslate(-43 * Number(meeting.start_time.substring(0, 2)) + 20);
+      else if (14 < Number(meeting.start_time.substring(0, 2))) setTimePickerTranslate(14 * -43 + 20);
+
       setSelectedList(initSelectedList);
 
-      if (minimumTime != 0 && minimumTime <= 14) TimePickerTranslate = -43 * minimumTime + 20;
-      else if (14 < minimumTime) TimePickerTranslate = 14 * -43 + 20;
+      
 
       setSelectedDay(startDate_tmp);
       setMinimumDate(startDate_tmp);
