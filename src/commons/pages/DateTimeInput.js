@@ -118,22 +118,37 @@ const DateTimeInput = ({ match }) => {
       endDate_tmp.day = "" + endDate_tmp.day;
       endDate_tmp.day = Number(endDate_tmp.day.substring(8, 10));
 
-      
+
 
       for (let i = 0; i < 24; i++) {
         let input = { name: i }
         list.push(input)
-        if (Number(meeting.start_time.substring(0,2)) <= i && i < Number(meeting.end_time.substring(0,2))) {
-          initSelectedList.push(-1);
-          allCheckedList.push(1);
-        } else {
-          initSelectedList.push(0);
-          allCheckedList.push(0);
+        const start_num = Number(meeting.start_time.substring(0, 2));
+        const end_num = Number(meeting.end_time.substring(0, 2));
+
+        if (start_num < end_num) {
+          if (start_num <= i && i < end_num) {
+            initSelectedList.push(-1);
+            allCheckedList.push(1);
+          } else {
+            initSelectedList.push(0);
+            allCheckedList.push(0);
+          }
         }
+        else if(start_num > end_num){
+          if (end_num <= i && i < start_num) {
+            initSelectedList.push(0);
+            allCheckedList.push(0);
+          } else {
+            initSelectedList.push(-1);
+            allCheckedList.push(1);
+          }
+        }
+
       };
 
-      setMinimumTime(Number(meeting.start_time.substring(0,2)));
-      setMaximumTime(Number(meeting.end_time.substring(0,2)));
+      setMinimumTime(Number(meeting.start_time.substring(0, 2)));
+      setMaximumTime(Number(meeting.end_time.substring(0, 2)));
 
       console.log(meeting.start_time + meeting.end_time);
       console.log(initSelectedList);
@@ -145,9 +160,9 @@ const DateTimeInput = ({ match }) => {
       setSelectedDay(startDate_tmp);
       setMinimumDate(startDate_tmp);
       setMaximumDate(endDate_tmp);
-      
 
-      
+
+
     }
     fetchMeeting();
   }, []);
