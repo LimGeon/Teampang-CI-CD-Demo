@@ -49,13 +49,6 @@ const DateTimeInput = ({ match }) => {
       }
     }
 
-    console.log({
-      meeting_id: `${meeting.id}`,
-      code: `${match.params.invite_code}`,
-      name: `${match.params.name}`,
-      availabable_times: postData
-    })
-
     axios.post('https://api.teampang.app/participants', {
       meeting_id: `${meeting.id}`,
       code: `${match.params.invite_code}`,
@@ -150,8 +143,6 @@ const DateTimeInput = ({ match }) => {
       setMinimumTime(Number(meeting.start_time.substring(0, 2)));
       setMaximumTime(Number(meeting.end_time.substring(0, 2)));
 
-      console.log(meeting.start_time + meeting.end_time);
-      console.log(initSelectedList);
       setSelectedList(initSelectedList);
 
       if (minimumTime != 0 && minimumTime <= 14) TimePickerTranslate = -43 * minimumTime + 20;
@@ -252,7 +243,6 @@ const DateTimeInput = ({ match }) => {
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
 
-  console.log(availableDateTime);
   return (
 
     <div>

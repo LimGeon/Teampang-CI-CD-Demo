@@ -47,7 +47,6 @@ function NameInput({ match }) {
                 const response = await axios.get(
                     `https://api.teampang.app/meetings?code=${match.params.invite_code}`
                 );
-                console.log(response.data.data);
                 setMeeting(response.data.data); // 데이터는 response.data 안에 들어있습니다.
             } catch (e) {
                 setError(e);
