@@ -3,7 +3,7 @@ import Modal from '../components/Modals/Modal.js';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import "../../assets/css/NameInput.css";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 }));    
 
 function NameInput({ match }) {
+    // const history = useHistory();
 
     var check_num = /[0-9]/;
     var check_eng = /[a-zA-Z]/;
@@ -38,8 +39,7 @@ function NameInput({ match }) {
     const classes = useStyles();
 
 
-    // const handleOnClick = useCallback(() => history.push('/sample'), [history]);
-    // //const duplicateName
+    // const handleOnClick = () => history.push('/sample');
 
     useEffect(() => {
         const fetchMeeting = async () => {
@@ -63,7 +63,7 @@ function NameInput({ match }) {
         fetchMeeting();
     }, []);
 
-    if (loading) return <div>로딩중..</div>;
+    if (loading) return <div></div>;
     if (error) return (<div class="all2">
     <div class="container1">
       <div class="header item11">
@@ -179,6 +179,7 @@ function NameInput({ match }) {
         </svg>
 
         <pre class="font3">일정 데이터가 잘못되었습니다!</pre>
+
         <pre class="font4">팀장이 일정을 삭제했거나 오류 발생입니다.<br></br>           다시 시도해주시기 바랍니다.</pre>
       </div>
       <div class="item33">
@@ -235,14 +236,13 @@ function NameInput({ match }) {
                         {value === "" ?
                             <button className="button33"> 다음 </button>
                             :
-                            <button className="button11"> 다음 </button>
-                        }
-
-(
-                            {/* (check_spc.test(value) == true) ?
+                            (
+                            (check_spc.test(value) == true) ?
                             <button className="button33"> 한글, 영문, 숫자만 입력해주세요. </button>
                             :
-                            <Link to={`/join/${value}/${match.params.invite_code}`}> */}
+                            <Link to={`/join/${value}/${match.params.invite_code}`}><button className="button11"> 다음 </button></Link>
+                            )
+                        }
 
                     </div>
                     <div className="item33">
